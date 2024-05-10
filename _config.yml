@@ -2,6 +2,8 @@
 title: Your Website Title
 description: A brief description of your website
 
+button: 'public/index.html'
+
 # Build settings
 theme: jekyll-theme-minimal
 plugins:
