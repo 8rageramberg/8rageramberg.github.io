@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Web App Title</title>
-    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <title>Countries of the world</title>
 </head>
+
 <body>
-    <header>
-        <h1>my ugly app</h1>
-        <!-- Add navigation or other header content here -->
+
+  <div id="root" class="grid-container">
+    <!-- Header -->
+    <header class="header">
+      <img src="earth.png" alt="Planet earth" />
+      
     </header>
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>This is a paragraph about your web app.</p>
-        </section>
-        <!-- Add more sections as needed -->
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <!-- Internal nav container for sticky positioning -->
+      <div class="nav-container">
+        <h2>Country Encyclopedia</h2>
+        <ul>
+          <!-- Nav items for current and potential future pages -->
+          <li class="active"><a href="index.html">Countries</a></li>
+          <li><a href="languages.html">Languages</a></li>
+          <li><a href="capitals.html">Capitals</a></li>
+        </ul>
+      </div>
+
+      
+      
+    </nav>
+
+    <!-- Main content -->
+    
+    
+    <main class="content">
+
+      <input type="text" id="filterInput" placeholder="Search for a country...">
+      <button id="filterBtn">Filter</button>
+      <!-- This should remain empty - our content will be dynamically loaded with JS -->
     </main>
-    <footer>
-        <p>&copy; 2024 Your Web App. All rights reserved.</p>
-        <!-- Add footer content here -->
+
+    <!-- Aside -->
+    <aside class="aside">
+      <!-- Internal aside container for sticky positioning -->
+      <div class="aside-container">
+        <h2>Favourites</h2>
+        <ul>
+          <!-- This should remain empty - our content will be dynamically loaded from local storage -->
+        </ul>
+        <button id="clear">Clear Favourites</button>
+      </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made using the <a href="https://restcountries.com">Countries API</a>.</p>
     </footer>
-    <!-- Add any additional scripts or libraries here WHHHHHHHAAAYT -->
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
