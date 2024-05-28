@@ -14,7 +14,10 @@
   <div class="container">
     <!-- Header -->
     <header class="header">
-      <h1 id="version"></h1></h1>
+      <h1 id="version"></h1>
+      </h1>
+      <button id="updateVersionButton">Update Version</button>
+
       <button class="settings-button">
         <img src="settings.png" alt="Settings">
       </button>
@@ -24,7 +27,10 @@
 
     <div id="settings" class="settings">
 
-      <h2>Add Folder</h2>
+      <h2>Settings</h2>
+      <p>Commands Mac:</p>
+      <p>cmd A = add</p>
+      <p>cmd S = settings</p>
       <!-- Add your form elements here -->
       <form id="settings-form">
 
@@ -36,33 +42,9 @@
 
     <div id="overlay" class="overlay">
       <div class="overlay-content">
-        <h2>Add Film/TV-Show</h2>
-
-        <!-- Input fields
-        <form id="addFolderForm">
-
-          <input type="text" placeholder="Name" required> 
-          <input type="text" placeholder="Director" required>
-          <input type="text" placeholder="Year" required>
-
-          <button type="radio">Film/TV</button>
-
-          <input type="text" placeholder="Genera" required>
-          <input type="number" placeholder="Length" required>
-          <input type="text" placeholder="Seen" required>
-
-          <input type="number" placeholder="Rating" required>
-          <input type="number" placeholder="Numer Priority" required>
-
-          <input type="text" placeholder="img url" required>
-
-          <input type="int" placeholder="Favourite" required>
-          
-
-
-          <button type="submit">Add</button> -->
 
         <form id="addFolderForm">
+          <h2>Add Film/TV-Show</h2>
           <input type="text" placeholder="Title" required>
           <input type="text" placeholder="Director" required>
           <input type="number" placeholder="Year" required>
@@ -70,12 +52,12 @@
 
           <label>Type of Content:</label>
           <div class="radio-buttons">
-            
-              <input type="radio" id="radio-button-1"  name="contentType" value="film" required>
-              <label for="radio-button-1">FILM</label>
 
-              <input type="radio"  id="radio-button-2" name="contentType" value="tv" required>
-              <label for="radio-button-2">TV</label>
+            <input type="radio" id="radio-button-1" name="contentType" value="film" required>
+            <label for="radio-button-1">FILM</label>
+
+            <input type="radio" id="radio-button-2" name="contentType" value="tv" required>
+            <label for="radio-button-2">TV</label>
 
           </div>
 
@@ -95,14 +77,14 @@
 
           <label>Have you seen it or not?</label>
           <div class="radio-buttons">
-            
-            <input type="radio" id="radio-button-3"  name="watched" value="no" required>
+
+            <input type="radio" id="radio-button-3" name="watched" value="no" required>
             <label for="radio-button-3">NO</label>
 
-            <input type="radio"  id="radio-button-4" name="watched" value="yes" required>
+            <input type="radio" id="radio-button-4" name="watched" value="yes" required>
             <label for="radio-button-4">Yes</label>
 
-        </div>
+          </div>
 
 
           <label for="rating">Rating:</label>
