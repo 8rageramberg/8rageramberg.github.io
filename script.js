@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateVersion() {
     const h1 = document.getElementById('version');
     const timestamp = new Date().toLocaleString(); // Get the current timestamp
-    h1.textContent = `Your Website Title (Version: ${timestamp})`; // Update the content of h1
+    h1.innerText = `My Film Ratings (Version: ${timestamp})`; // Update the content of h1
   }
   
   // Call the updateVersion function to set the initial version or timestamp
