@@ -163,7 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const optionsToggle = document.querySelector('.options-toggle');
   const optionsContent = document.querySelector('.options-content');
   const footer = document.querySelector('.footer');
+  const cardMarker = document.querySelectorAll(".card");
 
+  // ADD overlay
+  const overlay = document.querySelector('.overlay');
+  const addBtn = document.querySelector('.add-button');
+
+
+  // listeners
   optionsToggle.addEventListener('click', () => {
     optionsContent.classList.toggle('show');
   });
@@ -175,5 +182,19 @@ document.addEventListener('DOMContentLoaded', () => {
       footer.classList.remove('menu-open'); // Also remove the class from the footer
     }
   });
-  
+  cardMarker.forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("marked");
+    });
+  });
+
+  addBtn.addEventListener('click', () => {
+    
+    overlay.classList.toggle('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    const overlay = document.getElementById('overlay');
+    overlay.classList.remove('show');
+  });
 });

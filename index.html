@@ -15,8 +15,28 @@
     <!-- Header -->
     <header class="header">
       <h1>My Film Ratings</h1>
+
+      <button class="settings-toggle">
+
+        <img src="settings.png" alt="Settings">
+      </button>
       <!-- Header content -->
     </header>
+
+
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <h2>Add Folder</h2>
+        <!-- Add your form elements here -->
+        <form id="addFolderForm">
+
+          <input type="text" placeholder="Folder Name" required>
+          <button type="submit">Add</button>
+          
+        </form>
+        <button id="closeBtn">Close</button>
+      </div>
+    </div>
 
     <!-- Content -->
     <aside class="content">
@@ -27,9 +47,10 @@
       </div>
     </aside>
 
+    
+
     <footer class="footer">
       
-
       <div class="footer-container">
         <div class="options-dropdown">
           
