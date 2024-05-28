@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // close buttons
   const closeBtns = document.querySelectorAll('.close-button')
 
+
   // listeners
   optionsToggle.addEventListener('click', () => {
     optionsContent.classList.toggle('show');
@@ -198,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   settingsBtn.addEventListener('click', () => {
     settingsOverlay.classList.toggle('show');
+    footer.classList.toggle('show');
   });
 
   addBtn.addEventListener('click', () => {
@@ -209,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       addOverlay.classList.remove('show');
       settingsOverlay.classList.remove('show');
+      footer.classList.remove('show');
     });
   });
 
