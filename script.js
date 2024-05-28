@@ -159,6 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFilms();
 });
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const optionsToggle = document.querySelector('.options-toggle');
   const optionsContent = document.querySelector('.options-content');
@@ -166,9 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardMarker = document.querySelectorAll(".card");
 
   // ADD overlay
-  const overlay = document.querySelector('.overlay');
   const addBtn = document.querySelector('.add-button');
+  const addOverlay = document.getElementById('overlay');
 
+  // Settings overlay
+  const settingsBtn = document.querySelector('.settings-button');
+  const settingsOverlay = document.getElementById('settings');
+
+  // close buttons
+  const closeBtns = document.querySelectorAll('.close-button')
 
   // listeners
   optionsToggle.addEventListener('click', () => {
@@ -188,13 +196,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  addBtn.addEventListener('click', () => {
-    
-    overlay.classList.toggle('show');
+  settingsBtn.addEventListener('click', () => {
+    settingsOverlay.classList.toggle('show');
   });
 
-  closeBtn.addEventListener('click', () => {
-    const overlay = document.getElementById('overlay');
-    overlay.classList.remove('show');
+  addBtn.addEventListener('click', () => {
+    addOverlay.classList.toggle('show');
   });
+
+  // Close button event listeners
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      addOverlay.classList.remove('show');
+      settingsOverlay.classList.remove('show');
+    });
+  });
+
+
+   // Keyboard shortcuts
+   document.addEventListener('keydown', (event) => {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const cmdKey = isMac ? event.metaKey : event.altKey;
+
+    if (cmdKey && event.key === 'a') {
+      event.preventDefault(); // Prevent default browser behavior
+      addOverlay.classList.toggle('show');
+      settingsOverlay.classList.remove('show');
+    } else if (cmdKey && event.key === 'c') {
+      event.preventDefault(); // Prevent default browser behavior
+      closeBtns.forEach(btn => {
+        btn.click();
+      });
+    } else if (cmdKey && event.key === 's') {
+      event.preventDefault(); // Prevent default browser behavior
+      settingsOverlay.classList.toggle('show');
+      addOverlay.classList.remove('show');
+    }
+  });
+
 });
