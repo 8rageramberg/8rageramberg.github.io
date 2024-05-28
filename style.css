@@ -167,8 +167,43 @@
 }
 
 
+
+
 .header {
   display: flex;
+}
+
+/* settings */
+
+.settings-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: antiquewhite;
+}
+
+.settings.show {
+  display: flex;
+}
+
+.settings-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 
@@ -201,9 +236,8 @@
   background-color: #0056b3;
 }
 
-/* overlay for add sequence*/
+/* overlay for ADD sequence*/
 .overlay {
-  margin-top: 10%;
   position: fixed;
   top: 0;
   left: 0;
@@ -217,40 +251,15 @@
   font-size: 16px;
 }
 
+.overlay-content {
+  margin-top: 16px;
+  padding: 2px;
+}
+
 .overlay.show {
   display: flex;
 }
 
-.settings-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.settings {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  background-color: antiquewhite;
-}
-
-.settings.show {
-  display: flex;
-}
-
-.settings-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
 
 
 /* form */
@@ -290,7 +299,7 @@ form input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
+  width: 100px;
   /* Increase width to add space between radio button and text */
   height: 40px;
   /* Increase height for better visual appearance */
@@ -391,7 +400,7 @@ form textarea {
   form input,
   form select,
   form textarea {
-    width: 150%;
+    width: 170%;
     /* Make the form inputs 33% bigger */
   }
 }
