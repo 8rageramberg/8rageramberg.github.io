@@ -1,329 +1,124 @@
-/* ---------------
-LEAVE THESE STYLES
---------------- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Dosis', sans-serif;
-  line-height: 1.6;
-  color: #666;
-  background: #F6F6F6;
-}
-
-.header img {
-  display: block;
-  margin: 1rem auto;
-  width: 200px;
-}
-
-
-/* -------------------
-ADD YOUR GRID CSS HERE
--------------------- */
-
-.container {  display: grid;
-  grid-template-columns: 300px 1fr 300px;
-  grid-template-rows: auto 1fr auto;
-  grid-auto-rows: 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: column;
-  grid-template-areas:
-    "header header header"
-    "nav content aside"
-    "footer footer footer";
-}
-
-.header { grid-area: header; }
-
-.nav { grid-area: nav; }
-
-.content { grid-area: content; }
-
-.aside { grid-area: aside; }
-
-.footer { grid-area: footer; }
-
-
-/* -------------------------
-ADD YOUR RESPONSIVE CSS HERE
--------------------------- */
-@media screen and (max-width: 900px) {
-  .grid-container {
-      /* Reset template areas for a single column layout */
-      grid-template-areas:
-      "header"
-      "nav"
-      "content"
-      "aside"
-      "footer";
-
-      /* Reset column and row measurements for a single column */
-      grid-template-columns: 1fr;
-      grid-template-rows:
-      auto /* Header */
-      auto /* Nav */
-      1fr /* Content */
-      auto /* Sidebar */
-      auto; /* Footer */
-  }
-   
-  /* Reset margin for nav & aside - better for smaller devices */
-  .nav, .aside {
-      margin: 0;
-  }
-}
-
-
-
-/* ---------------
-LEAVE THESE STYLES
---------------- */
-
-nav .nav-container, aside .aside-container{
-  position: sticky;
-  top: 20px;
-  padding: 2em;
-}
-
-nav h2, aside h2 {
-  border-bottom: 2px solid #666;
-}
-
-nav ul {
-  list-style: none;
-    margin-left: 0.5rem;
-}
-
-aside ul {
-  margin-left: 1em;
-}
-
-nav ul li, aside ul li {
-  position: relative;
-  margin: 20px 0;
-}
-
-nav ul li a {
-  line-height: 2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.4em;
-  display: block;
-  transition: all ease-out 300ms;
-}
-
-nav ul li.active a{
-  color: #444;
-  font-weight: 900;
-}
-
-nav ul li:not(.active) a{
-  color: #666;
-  transition: all 0.3s ease;
-}
-
-nav ul li:not(.active):hover a {
-  color: #444;
-}
-
-nav ul li:not(.active):after {
-  opacity: 0.2;
-}
-
-nav ul li:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: black;
-  left: 0;
-  bottom: 0;
-  background-image: linear-gradient(to right, #5e42a6, #b74e91);
-  transition: all 0.3s ease;
-}
-nav ul li:not(.active):hover:after {
-    opacity: 0.5;
-}
-
-button {
-  width: 80%;
-  display: block;
-  margin: 1em auto;
-  height: 60px;
-  background-color: transparent;
-  border: 2px solid #666;
-  border-radius: 12px;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.2s linear;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, .15);
-}
-
-button:active, button:focus {
-    outline: 0;
-}
-
-.content {
-  display: flex;
+/* Card layout */
+.card-container {
+  display: flex; /* Use flexbox to align cards */
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .card {
-  position: relative;
-  margin: 1rem;
-/*   padding-bottom: calc(2em + 60px); */
-  background: white;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-  border-radius: 12px;
+  min-width: 400px; /* Minimum width for the card */
+  max-width: 400px;
+  margin-bottom: 20px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
   overflow: hidden;
-  transition: all 0.3s linear;
+  box-sizing: border-box;
+  display: flex; /* Ensures the card is a flex container */
+  width: calc(50% - 20px); /* Initially, each card takes half of the container minus gap */
+  justify-content: center;
 }
 
-.card:hover {
-  box-shadow: 2px 8px 45px rgba(0, 0, 0, .25);
+.card-details p {
+  margin: 0; /* Remove default margin for <p> elements */
+  padding: 0; /* Remove default padding for <p> elements */
 }
 
-.card h1 {
-  text-align: center;
-  padding: 1.5rem 2.5rem;
-  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
-  font-size: 1.5rem;
-  color: white;
+.card-left {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+  overflow: hidden;
 }
 
-.card p {
-  padding: 2em;
-  margin: 0;
-}
-
-
-  .card button {
-    /* position: absolute;
-    bottom: 0;
-    left: 10%;
-    right: 10%; */
-    /* Delete or comment out the above properties */
-  
-    width: 80%;
-    display: block;
-  
-    margin: 1em auto; /* Update the margin */
-  height: 60px;
-  background-color: transparent;
-  border: 2px solid #666;
-  border-radius: 12px;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.2s linear;
-  
-}
-
-
-.card button:hover {
-  background-color: #fef9d7;
-    transform: translateY(-2px);
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, .15);
-}
-
-.card button:active, .card button:focus {
-    outline: 0;
+.card-right {
+  flex: 1;
+  max-width: 50%;
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 .card img {
+  width: 100%;
+  height: auto;
   display: block;
-  margin: 0 auto;
-  width: 300px;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 2rem;
 }
 
-footer p {
-  padding-top: 40px;
-  text-align: center;
+.card-details h2 {
+  margin-top: 0;
+}
+
+/* Optional: Add styling for hover effect or other interactions */
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+}
+
+.options-dropdown {
+  position: relative;
 }
 
 
-@media screen and (min-width: 1200px) {
-  .card {
-    flex: 1 1 calc(50% - 2rem);
-  }
+.options-content {
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  display: none;
+  justify-content: center;
 }
 
-@media screen and (min-width: 1400px) {
-  .card {
-    flex: 1 1 calc(33% - 2rem);
-  }
+.options-content.show {
+  display: flex;
+  transform: translateY(0);
+  
 }
 
-.card:nth-child(n) h1 {
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+.options-content.show input{
+  width: 75%;
 }
 
-.card:nth-child(2n) h1 {
-  background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+.options-content.show button{
+  width: 25%;
 }
 
-.card:nth-child(3n) h1 {
-  background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
-}
-
-/* Custom styles for the input field */
-#filterInput {
-  display: inline-block;
-  width: calc(100% - 300px); /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
-  padding: 0.5em;
-  margin: 1em auto; /* Center the input field horizontally and add spacing */
-  border: 2px solid #666;
-  border-radius: 8px;
-  font-family: 'Dosis', sans-serif;
-  font-size: 16px;
-}
-
-/* Custom styles for the filter button */
-#filterBtn {
-  display: inline-block;
-  width: 100px; /* Adjust the width as needed */
-  height: 40px; /* Adjust the height as needed */
-  margin-left: 10px; /* Add spacing between the input field and button */
-  border: 2px solid #666;
-  border-radius: 8px;
-  background-color: transparent;
-  color: #666;
-  font-family: 'Dosis', sans-serif;
-  font-size: 16px;
+.footer button {
+  width: 25%;
+  padding: 20px;
+  background-color: rgb(0, 140, 190);
+  margin: 5px;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.2s linear;
+  transition: background-color 0.3s ease;
+  justify-content: center;
 }
 
-/* Hover effect for the filter button */
-#filterBtn:hover {
-  background-color: #fef9d7;
-  transform: translateY(-2px);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, .15);
-}
 
-/* Active/focus state for the filter button */
-#filterBtn:active, #filterBtn:focus {
-  outline: 0;
-}
 
-/* Media query for responsiveness */
-@media screen and (max-width: 600px) {
-  #filterInput {
-    width: calc(100% - 80px); /* Adjust the width for smaller screens */
-  }
+.footer button:hover {
+  background-color: #0056b3;
 }

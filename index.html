@@ -11,55 +11,43 @@
 
 <body>
 
-  <div id="root" class="grid-container">
+  <div class="container">
     <!-- Header -->
     <header class="header">
-      <img src="earth.png" alt="Planet earth" />
-      
+      <h1>My Film Ratings</h1>
+      <!-- Header content -->
     </header>
 
-    <!-- Navigation -->
-    <nav class="nav">
-      <!-- Internal nav container for sticky positioning -->
-      <div class="nav-container">
-        <h2>Country Encyclopedia</h2>
+    <!-- Content -->
+    <aside class="content">
+      <div class="card-container">
+        <!-- Cards will be dynamically added here -->
         <ul>
-          <!-- Nav items for current and potential future pages -->
-          <li class="active"><a href="index.html">Countries</a></li>
-          <li><a href="languages.html">Languages</a></li>
-          <li><a href="capitals.html">Capitals</a></li>
         </ul>
-      </div>
-
-      
-      
-    </nav>
-
-    <!-- Main content -->
-    
-    
-    <main class="content">
-
-      <input type="text" id="filterInput" placeholder="Search for a country...">
-      <button id="filterBtn">Filter</button>
-      <!-- This should remain empty - our content will be dynamically loaded with JS -->
-    </main>
-
-    <!-- Aside -->
-    <aside class="aside">
-      <!-- Internal aside container for sticky positioning -->
-      <div class="aside-container">
-        <h2>Favourites</h2>
-        <ul>
-          <!-- This should remain empty - our content will be dynamically loaded from local storage -->
-        </ul>
-        <button id="clear">Clear Favourites</button>
       </div>
     </aside>
 
-    <!-- Footer -->
     <footer class="footer">
-      <p>Made using the <a href="https://restcountries.com">Countries API</a>.</p>
+      
+
+      <div class="footer-container">
+        <div class="options-dropdown">
+          
+          <div class="options-content">
+
+            <button class="sort-option">Sort by Title</button>
+            <input type="text" class="search-input" id="temp" placeholder="Search...">
+
+          </div>
+        </div>
+
+        
+        <button class="delete-button">DELETE </button>
+        <button class="sort-button">SORT</button>
+        <button class="add-button">ADD</button>
+        <button class="options-toggle">▵</button>
+
+      </div>
     </footer>
   </div>
 

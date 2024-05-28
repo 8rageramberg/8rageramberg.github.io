@@ -1,151 +1,179 @@
-// Store the element with the class 'content' as a variable for later use
-var content = document.querySelector('.content');
+document.addEventListener('DOMContentLoaded', () => {
+  const cardContainer = document.querySelector('.card-container'); // Select .card-container directly
+  const films = [
+    {
+      title: 'Batman Begins',
+      director: 'Christopher Nolan',
+      year: 2005,
+      content: 'Film',
+      genre: 'Fantasy / Action',
+      duration: '2h 20min',
+      watched: true,
+      rating: 9,
+      priority: 1,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'The Dark Knight',
+      director: 'Christopher Nolan',
+      year: 2008,
+      content: 'Film',
+      genre: 'Fantasy / Action',
+      duration: '2h 32min',
+      watched: true,
+      rating: 9.2,
+      priority: 1,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    {
+      title: 'Inception',
+      director: 'Christopher Nolan',
+      year: 2010,
+      content: 'Film',
+      genre: 'Sci-Fi / Action',
+      duration: '2h 28min',
+      watched: true,
+      rating: 8.8,
+      priority: 2,
+      favorite: true,
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      date: new Date('2012-12-10T16:30:00')
+    },
+    // Add other film objects here as needed
+  ];
 
-// Store the URL in a variable as well
-var url = "https://restcountries.com/v3.1/all"
+  function renderFilms() {
+    cardContainer.innerHTML = '';
+    films.forEach(film => {
+      const filmCard = document.createElement('div'); // Changed from 'li' to 'div' for the card
+      filmCard.className = 'card';
 
-var filterBtn = document.getElementById('filterBtn');
-var filterInput = document.getElementById('filterInput');
+      const leftDiv = document.createElement('div');
+      leftDiv.className = 'card-left';
+      const rightDiv = document.createElement('div');
+      rightDiv.className = 'card-right';
 
-// Function to filter countries based on user input
-function filterCountries(input) {
-    // Get all the card elements inside the content container
-    var cards = document.querySelectorAll('.card');
-  
-    // Loop through each card and check if it contains the input value
-    cards.forEach((card) => {
-      var heading = card.querySelector('h1').textContent.toLowerCase();
-      var shouldDisplay = heading.includes(input.toLowerCase());
-      card.style.display = shouldDisplay ? 'block' : 'none';
+      const img = document.createElement('img');
+      img.src = film.imageUrl;
+      img.alt = film.title;
+      leftDiv.appendChild(img);
+
+      const details = document.createElement('div');
+      details.className = 'card-details';
+      details.innerHTML = `
+        <h2>${film.title}</h2>
+        <p><strong>Director:</strong> ${film.director}</p>
+        <p><strong>Year:</strong> ${film.year}</p>
+        <p><strong>Content:</strong> ${film.content}</p>
+        <p><strong>Genre:</strong> ${film.genre}</p>
+        <p><strong>Duration:</strong> ${film.duration}</p>
+        <p><strong>Watched:</strong> ${film.watched ? 'Yes' : 'No'}</p>
+        <p><strong>Rating:</strong> ${film.rating !== null ? film.rating : 'None'}</p>
+        <p><strong>Priority:</strong> ${film.priority}</p>
+        <p><strong>Favorite:</strong> ${film.favorite ? 'Yes' : 'No'}</p>
+        <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
+      `;
+      rightDiv.appendChild(details);
+
+      filmCard.appendChild(leftDiv);
+      filmCard.appendChild(rightDiv);
+
+      cardContainer.appendChild(filmCard);
     });
   }
 
-// Call the function to update the DOM in case there are already favourite countries
-updateFavourites();
-
-// Set up the functionality for clearing the localStorage favourites
-let clearButton = document.getElementById("clear");
-clearButton.addEventListener("click", function() {
-  localStorage.removeItem('favCountries');
-  updateFavourites();
+  renderFilms();
 });
 
-// Define the function for updating the DOM with favourite countries
-function updateFavourites() {
+document.addEventListener('DOMContentLoaded', () => {
+  const optionsToggle = document.querySelector('.options-toggle');
+  const optionsContent = document.querySelector('.options-content');
+  const footer = document.querySelector('.footer');
 
-  // Select the list element and clear it's content
-  let list = document.querySelector("aside ul");
-  list.innerHTML = "";
-
-  // Retrieve the favourite countries from localStorage
-  let favCountries = JSON.parse(localStorage.getItem('favCountries'))
-
-  // Make sure the localStorage item exists by checking it's not equal to 'null'
-  if (favCountries !== null){
-
-    // Loop through the countries and add their names as list items to the page
-    favCountries.forEach((country) => {
-      let listItem = document.createElement("li");
-      listItem.textContent = country;
-      list.appendChild(listItem);
-    })
-  } 
-}
-
-// Event listener for the filter button
-filterBtn.addEventListener('click', () => {
-    const inputValue = filterInput.value.trim(); // Get the input value and trim any whitespace
-    filterCountries(inputValue); // Call the filterCountries function with the input value
+  optionsToggle.addEventListener('click', () => {
+    optionsContent.classList.toggle('show');
   });
 
-// Fetch data from API and handle the response to display the country information on the page
-fetch(url)
-.then((response) => {
-  // Check if response is successful
-  if (response.ok) {
-    // Convert response to JSON and return the data
-    return response.json();
-  } else {
-    // Throw an error if response is not successful
-    throw new Error(`Unable to access API. Error: ${response.status}`);
-  }
-})
-.then((data) => {
-  // Add code to do something with the data once it has been fetched and converted
-
-  data.sort((a, b) => a.name.common.localeCompare(b.name.common));
-
-  console.log(data);
-  data.forEach((country) => {
-    // console.log(country); // Uncomment to see each array item stored as object
-
-        // Card container
-        let card = document.createElement("div");
-        card.setAttribute("class", "card");
-
-        // Title Heading
-        let heading = document.createElement("h1");
-        // Truncate the name if it's longer than 20 characters (to keep the grid alignment)
-        if (country.name.common.length > 20) {
-        heading.textContent = `${country.name.common.substring(0, 20)}...`;
-        } else {
-        heading.textContent = country.name.common;
-        }
-
-        // Description Paragraph
-        let paragraph = document.createElement("p");
-        paragraph.innerHTML = `Population: ${country.population} <br> Region: ${country.region} <br> Capital: ${country.capital} <br> Independent: ${country.independent}`;
-
-        // Flag Image
-        let flag = new Image();
-        flag.src = country.flags.png;
-        flag.alt = country.flags.alt;
-
-        // Append all the sub elements to the card container
-        card.appendChild(heading);
-        card.appendChild(paragraph);
-        card.appendChild(flag);
-
-        // Append the card to the main content container (Step 1)
-        content.appendChild(card);
-
-        let favButton = document.createElement("button");
-        favButton.textContent = "Add to Favourites";
-        card.appendChild(favButton);
-
-        favButton.addEventListener("click", function(event) {
-          // Log out the name from the current country to test the each button
-          console.log(country.name.common)
-        
-          // Extract the 'favCountries' item from local storage as JSON 
-          let favCountries = JSON.parse(localStorage.getItem('favCountries'))
-          
-          // Check if the item doesn't exist in localStorage by seeing if it is null
-          if (favCountries == null){
-            // In which case, use the current country name to create an array
-            favCountries = [country.name.common]
-          } else {
-            // Otherwise check if the country is already in the favourites array
-            if (favCountries.find(element => element === country.name.common)){
-              console.log('Country already exists')
-            } else {
-              // If it's not in the array already, push it into the array
-              favCountries.push(country.name.common)
-            }
-          }
-          console.log(favCountries)
-          localStorage.setItem('favCountries', JSON.stringify(favCountries))
-          updateFavourites();
-        })
-  })
-})
-
-
-
-
-.catch((error) => {
-  // Handle error if API request is not successful
-  let errorMessage = document.createElement("p");
-  errorMessage.textContent = `Sorry, something went wrong - ${error.message}`;
-  content.append(errorMessage);
+  // Close the options dropdown when clicking outside of it
+  window.addEventListener('click', (event) => {
+    if (!event.target.matches('.options-toggle') && !event.target.closest('.options-content')) {
+      optionsContent.classList.remove('show');
+      footer.classList.remove('menu-open'); // Also remove the class from the footer
+    }
+  });
+  
 });
