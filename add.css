@@ -9,6 +9,7 @@ body {
     font-weight: 400;
     font-style: normal;
     background-color: antiquewhite;
+    font-size: 16px;
 }
 
 .header {
@@ -103,18 +104,24 @@ a:hover {
 }
 
 
-/*  ADD site*/
 .add-site {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    font-size: 16px;
-    margin-bottom: 30px;
+    width: calc(100% - 32px); /* Calculate width with 16px margin on each side */
+    max-width: 600px; /* Set maximum width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 0 16px; /* Set padding on each side */
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+    .add-site {
+        padding: 0 16px; /* Set padding on each side */
+    }
+}
+
+@media (min-height: 900px) {
+    .add-site {
+        height: 100vh; /* Set the height to 100% of the viewport height */
+        max-height: 900px; /* Set a maximum height if needed */
+    }
 }
 
 
@@ -136,6 +143,7 @@ a:hover {
     width: 100px;
     height: 40px;
     padding: 10px;
+    margin: 16px;
     border-radius: 20px;
     background-color: rgb(0, 140, 190);
     border: 2px solid #ccc;
@@ -207,6 +215,7 @@ label {
 }
 
 .end-buttons {
+    margin: 16px;
     width: 100%;
     display: flex;
     text-align: center;
