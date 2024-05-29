@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link href="add.css" rel="stylesheet">
     <title>MyFilmRatings</title>
 </head>
@@ -14,7 +14,7 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1 id="version"></h1>
+
 
             <button class="settings-button">
                 <img src="settings.png" alt="Settings">
@@ -22,6 +22,7 @@
             <!-- Header content -->
         </header>
 
+        <h1>Add Film/TV-Show</h1>
         <div id="settings" class="settings">
 
             <h2>Settings</h2>
@@ -30,17 +31,17 @@
             <p>cmd S = settings</p>
             <!-- Add your form elements here -->
             <form id="settings-form">
-      
+
             </form>
             <button class="close-button">Close</button>
-      
-          </div>
+
+        </div>
 
         <div id="add-site" class="add-site">
             <div class="overlay-content">
 
                 <form id="addFolderForm">
-                    <h2>Add Film/TV-Show</h2>
+
                     <input type="text" placeholder="Title" required>
                     <input type="text" placeholder="Director" required>
                     <input type="number" placeholder="Year" required>
@@ -93,13 +94,18 @@
                     <input type="text" id="imgUrl" required>
 
                     <label for="favorite">Favorite:</label>
-                    <input type="checkbox" id="favorite">
 
-                    <button type="submit">Add</button>
+                        <input name="favourite" type="checkbox" id="custom-checkbox" class="custom-checkbox">
+
+
+                    <div class="end-buttons">
+                        <a href="index.html" id="back-button">BACK</a>
+                        <button type="submit">ADD</button>
+                    </div>
                 </form>
 
-                </form>
-                <a href="index.html" id="back-button">Back</a>
+
+
             </div>
         </div>
 

@@ -233,22 +233,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-// Function to update the version or timestamp in the h1 element
-function updateVersion() {
-  const h1 = document.getElementById('version');
-
-
-  version = new Date().toLocaleString();
-  localStorage.setItem('websiteVersion', version); // Store the initial version in local storage
-  h1.innerText = `My Film Ratings (Version: ${version})`; // Update the content of h1
-}
-// Call the updateVersion function to set the initial version or timestamp
-updateVersion();
-
-// Example event listener to update version on button click (optional)
-document.getElementById('updateVersionButton').addEventListener('click', function() {
-  localStorage.removeItem('websiteVersion'); // Remove the stored version
-  updateVersion(); // Update the version in h1
-});
-
 });
