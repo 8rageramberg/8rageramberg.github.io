@@ -105,38 +105,47 @@ a:hover {
 
 
 .add-site {
-    width: calc(100% - 32px); /* Calculate width with 16px margin on each side */
-    max-width: 600px; /* Set maximum width for the content */
-    margin: 0 auto; /* Center the content horizontally */
-    padding: 0 16px; /* Set padding on each side */
+    width: calc(100% - 32px);
+    /* Calculate width with 16px margin on each side */
+    max-width: 600px;
+    /* Set maximum width for the content */
+    margin: 0 auto;
+    /* Center the content horizontally */
+    padding: 0 16px;
+    /* Set padding on each side */
 }
 
 @media (min-width: 500px) and (max-width: 600px) {
     .add-site {
-        padding: 0 16px; /* Set padding on each side */
+        padding: 0 16px;
+        /* Set padding on each side */
     }
 }
 
 @media (min-height: 900px) {
     .add-site {
-        height: 100vh; /* Set the height to 100% of the viewport height */
-        max-height: 900px; /* Set a maximum height if needed */
+        height: 100vh;
+        /* Set the height to 100% of the viewport height */
+        max-height: 900px;
+        /* Set a maximum height if needed */
     }
 }
 
 
 /* form */
-
 /* radio buttons */
-.radio-button:checked~label {
+.radio-button:checked~label,
+.custom-checkbox~label{
     color: blue;
 }
 
-.radio-buttons input[type="radio"] {
+.radio-buttons input[type="radio"],
+.custom-checkbox input[type="checkbox"] {
     display: none;
 }
 
-.radio-buttons label {
+.radio-buttons label,
+.custom-checkbox label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,35 +161,29 @@ a:hover {
     color: white;
 }
 
-.radio-buttons label span {
-    flex: 1;
-    /* Take remaining space in the label */
-    text-align: center;
-    /* Center align the text */
-}
-
-.radio-buttons input[type="radio"]:checked+label {
+.radio-buttons input[type="radio"]:checked + label,
+.custom-checkbox input[type="checkbox"]:checked + label {
     background-color: #007bff;
-
-    /* Blue border for checked state */
     color: #fff;
-    /* White text color for checked state */
     border-color: red;
 }
 
 /* Optional: Add hover effect */
-.radio-buttons label:hover {
+.radio-buttons label:hover,
+.custom-checkbox label:hover {
     background-color: #cceeff;
     /* Light blue background on hover */
 }
 
 /* Optional: Add focus effect */
-.radio-buttons label:focus {
+.radio-buttons label:focus,
+.custom-checkbox label:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
-.radio-buttons {
+.radio-buttons,
+.custom-checkbox {
     display: flex;
     align-items: center;
 }
@@ -192,26 +195,15 @@ form {
 }
 
 form label {
-    display: flex;
     align-items: center;
     margin-bottom: 10px;
     /* Adjust spacing between form items */
 }
 
-/* Additional styling for the text next to radio buttons */
-form label span {
-    line-height: 25px;
-    /* Adjust as needed to vertically center text */
-}
-
-input[type='radio'] {
-    margin: 0;
-}
 
 label {
     display: inline;
     vertical-align: top;
-
 }
 
 .end-buttons {
@@ -248,31 +240,6 @@ form textarea {
     }
 }
 
-.fav {
-    display: flex;
-    align-items: center;
-    /* Center items vertically */
-}
 
-.custom-checkbox {
-    width: 40px;
-    height: 40px;
-    position: relative; /* Add relative positioning */
-}
 
-input[type=checkbox]:before {
-    content: "♡";
-    
-    display: inline-block;
-    position: absolute; /* Position the heart absolutely */
-    top: 50%; /* Move heart 50% from top */
-    left: 50%; /* Move heart 50% from left */
-    transform: translate(-50%, -50%); /* Center heart horizontally and vertically */
-}
-
-input[type=checkbox]:checked:before {
-    transform: translate(-50%, -50%); /* Center heart horizontally and vertically */
-    content: "♥";
-    background: blue;
-}
 
