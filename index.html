@@ -40,72 +40,6 @@
     </div>
 
 
-    <div id="overlay" class="overlay">
-      <div class="overlay-content">
-
-        <form id="addFolderForm">
-          <h2>Add Film/TV-Show</h2>
-          <input type="text" placeholder="Title" required>
-          <input type="text" placeholder="Director" required>
-          <input type="number" placeholder="Year" required>
-
-
-          <label>Type of Content:</label>
-          <div class="radio-buttons">
-
-            <input type="radio" id="radio-button-1" name="contentType" value="film" required>
-            <label for="radio-button-1">FILM</label>
-
-            <input type="radio" id="radio-button-2" name="contentType" value="tv" required>
-            <label for="radio-button-2">TV</label>
-
-          </div>
-
-          <label for="genre">Genre:</label>
-          <select id="genre" required>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Action">Action</option>
-            <option value="Comedy">Comedy</option>
-            <!-- Add more options as needed -->
-          </select>
-
-          <label for="durationHours">Duration (hours):</label>
-          <input type="number" id="durationHours" required>
-          <label for="durationMinutes">Duration (minutes):</label>
-          <input type="number" id="durationMinutes" required>
-
-
-          <label>Have you seen it or not?</label>
-          <div class="radio-buttons">
-
-            <input type="radio" id="radio-button-3" name="watched" value="no" required>
-            <label for="radio-button-3">NO</label>
-
-            <input type="radio" id="radio-button-4" name="watched" value="yes" required>
-            <label for="radio-button-4">Yes</label>
-
-          </div>
-
-
-          <label for="rating">Rating:</label>
-          <input type="number" id="rating" min="0" max="10" required>
-
-          <label for="priority">Priority:</label>
-          <input type="number" id="priority" min="1" required>
-
-          <label for="imgUrl">Image URL:</label>
-          <input type="text" id="imgUrl" required>
-
-          <label for="favorite">Favorite:</label>
-          <input type="checkbox" id="favorite">
-
-          <button type="submit">Add</button>
-        </form>
-
-        </form>
-        <button class="close-button">Close</button>
-      </div>
-    </div>
 
     <!-- Content -->
     <aside class="content">
@@ -134,7 +68,7 @@
 
         <button class="delete-button">DELETE </button>
         <button class="sort-button">SORT</button>
-        <button class="add-button">ADD</button>
+        <a href="add.html" class="add-button" id="add-button">ADD</a>
         <button class="options-toggle">▵</button>
 
       </div>

@@ -168,8 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardMarker = document.querySelectorAll(".card");
 
   // ADD overlay
-  const addBtn = document.querySelector('.add-button');
-  const addOverlay = document.getElementById('overlay');
+  const addBtn = document.getElementById('add-button');
 
   // Settings overlay
   const settingsBtn = document.querySelector('.settings-button');
@@ -202,14 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     footer.classList.toggle('show');
   });
 
-  addBtn.addEventListener('click', () => {
-    addOverlay.classList.toggle('show');
-  });
-
   // Close button event listeners
   closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      addOverlay.classList.remove('show');
+      // addOverlay.classList.remove('show');
       settingsOverlay.classList.remove('show');
       footer.classList.remove('show');
     });
@@ -223,7 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cmdKey && event.key === 'a') {
       event.preventDefault(); // Prevent default browser behavior
-      addOverlay.classList.toggle('show');
+      // addOverlay.classList.toggle('show');
+      addBtn.click()
       settingsOverlay.classList.remove('show');
     } else if (cmdKey && event.key === 'c') {
       event.preventDefault(); // Prevent default browser behavior
@@ -233,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (cmdKey && event.key === 's') {
       event.preventDefault(); // Prevent default browser behavior
       settingsOverlay.classList.toggle('show');
-      addOverlay.classList.remove('show');
+      // addOverlay.classList.remove('show');
     }
   });
 
