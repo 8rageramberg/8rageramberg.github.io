@@ -10,9 +10,11 @@ body {
   font-family: "Special Elite", system-ui;
   font-weight: 400;
   font-style: normal;
-  background-color: white;
+  background-color: antiquewhite;
+  font-size: 16px;
 
 }
+
 
 .header {
   position: absolute;
@@ -51,6 +53,9 @@ h1 {
   justify-content: center;
 }
 
+
+
+
 .card-details p {
   margin: 0;
   padding: 0;
@@ -67,6 +72,7 @@ h1 {
   flex: 1;
   max-width: 50%;
   padding: 2px;
+  margin: 2px;
   box-sizing: border-box;
   background-color: ghostwhite;
 }
@@ -90,45 +96,49 @@ h1 {
 
 .card.marked {
   border: 1px solid #0056b3;
-  box-shadow: 0px 0px 30px #0056b3  ;
+  box-shadow: 0px 0px 30px #0056b3;
 
 }
 
 
 /* footer */
 
+
+
+
 .footer {
   position: fixed;
+  padding: 16px;
   bottom: 0;
   left: 0;
-  height: 10%;
   width: 100%;
   background-color: #f0f0f0;
   box-sizing: border-box;
-  display: flex;
   justify-content: space-around;
+  align-items: center; /* Center items vertically */
 }
 
 .footer-container {
+
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 
 .hidden-footer {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
 
 .options-content {
-  position: fixed;
-  bottom: 10%;
+  display: flex;
   left: 0;
-  height: 10%;
   width: 100%;
   background-color: #f0f0f0;
-  padding: 10px 20px;
+  padding: 16px;
   box-sizing: border-box;
   display: none;
   justify-content: center;
@@ -136,7 +146,6 @@ h1 {
 
 .options-content.show {
   display: flex;
-
 }
 
 .options-content.show input {
@@ -144,37 +153,32 @@ h1 {
   border-radius: 20px;
   border: 2px solid #ccc;
   font-size: 16px;
+  padding: 16px;
+  
 }
 
 .options-content.show button {
   width: 25%;
 }
 
-/* footer */
-
-.hidden-footer {
-  display: none;
-}
-
 button,
 a {
   flex: 1;
-    width: 100%;
-    padding: 20px;
-    background-color: rgb(0, 140, 190);
-    margin: 5px;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    justify-content: center;
-    cursor: pointer;
-    line-height: 25px;
-    font-family: 'Special Elite', system-ui;
-    text-decoration: none;
-    font-size: 16px;
-
+  width: 100%;
+  padding: 16px;
+  background-color: rgb(0, 140, 190);
+  margin: 5px;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 25px;
+  font-family: 'Special Elite', system-ui;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 button:hover,
@@ -183,35 +187,40 @@ a:hover {
 }
 
 
-
 /* Media Queries for smal phones*/
 @media (max-width: 600px) {
   .card-container {
     display: flex;
-    justify-content: center; /* Center the card horizontally */
+    justify-content: center;
+    /* Center the card horizontally */
   }
 
   .card {
-    flex: 1 1 calc(100% - 32px); /* Calculate width with 16px margin on each side */
-    max-width: 400px; /* Maximum width for the card */
-    margin: 0 16px; /* Set margin on each side */
+    flex: 1 1 calc(100% - 32px);
+    /* Calculate width with 16px margin on each side */
+    max-width: 400px;
+    /* Maximum width for the card */
+    margin: 0 16px
+    /* Set margin on each side */
   }
 }
 
 @media (min-width: 600px) {
   .card-container {
     display: flex;
-    justify-content: center; /* Center the card horizontally */
+    justify-content: center;
+    /* Center the card horizontally */
   }
 
   .card {
-    flex: 1 1 calc(100% - 32px); /* Calculate width with 16px margin on each side */
-    max-width: 400px; /* Maximum width for the card */
-    margin: 0 16px; /* Set margin on each side */
+    flex: 1 1 calc(100% - 32px);
+    /* Calculate width with 16px margin on each side */
+    max-width: 400px;
+    /* Maximum width for the card */
+    margin: 0 16px;
+    /* Set margin on each side */
   }
 }
-
-
 
 /* settings */
 
@@ -249,6 +258,7 @@ a:hover {
   border: none;
   padding: 0;
 }
+
 .settings-button:hover {
   background: none;
 }
@@ -258,10 +268,5 @@ a:hover {
   width: 25px;
   height: 25px;
   padding: 16px;
-
-
   cursor: pointer;
-
-
 }
-
