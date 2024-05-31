@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // close buttons
   const closeBtns = document.querySelectorAll('.close-button')
 
-  const films = JSON.parse(localStorage.getItem('films'));
+  const films = JSON.parse(localStorage.getItem('films')) || [];
 
   function createCard() {
     cardContainer.innerHTML = '';
