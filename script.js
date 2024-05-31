@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cardContainer = document.querySelector('.card-container'); // Select .card-container directly
+  let cardContainer = document.querySelector('.card-container');
+  let markedCards = [];
   const films = [
     {
       title: 'Batman Begins',
@@ -119,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderFilms() {
     cardContainer.innerHTML = '';
     films.forEach(film => {
-      const filmCard = document.createElement('div'); // Changed from 'li' to 'div' for the card
+
+      const filmCard = document.createElement('div');
       filmCard.className = 'card';
 
       const leftDiv = document.createElement('div');
@@ -155,17 +157,79 @@ document.addEventListener('DOMContentLoaded', () => {
       cardContainer.appendChild(filmCard);
     });
   }
-
   renderFilms();
-});
 
 
+  // card action
 
-document.addEventListener('DOMContentLoaded', () => {
+  const cardMarker = document.querySelectorAll(".card");
+  const delBtn = document.querySelector(".delete-button")
+
   const optionsToggle = document.querySelector('.options-toggle');
   const optionsContent = document.querySelector('.options-content');
+
+
+
+  function updateButton() {
+    if (markedCards.length === 1) {
+      optionsToggle.textContent = "EDIT";
+      optionsToggle.removeEventListener("click", toggleOptions);
+      optionsToggle.addEventListener("click", editMarkedCard);
+    } else {
+      optionsToggle.textContent = "▵";
+      optionsToggle.removeEventListener("click", editMarkedCard);
+      optionsToggle.addEventListener("click", toggleOptions);
+    }
+  }
+
+  // Event listener for marking cards
+  cardMarker.forEach(card => {
+    card.addEventListener("click", () => {
+      if (markedCards.includes(card)) {
+        // Remove card from markedCards
+        markedCards = markedCards.filter(markedCard => markedCard !== card);
+      } else {
+        // Add card to markedCards
+        markedCards.push(card);
+      }
+
+
+      updateButton();
+      // Toggle the 'marked' class
+      card.classList.toggle("marked");
+    });
+  });
+
+  // Function to delete marked cards
+  function deleteMarkedCards() {
+    if (!markedCards || !Array.isArray(markedCards)) {
+      console.log("Error: card container or marked cards not found.");
+      return;
+    }
+
+    markedCards.forEach(card => {
+      // Remove the card from the DOM
+      cardContainer.removeChild(card);
+    });
+
+    // Clear the marked cards array
+    markedCards = [];
+
+    // Re-render the films after deletion
+
+  }
+
+
+
+  function editMarkedCard () {
+    console.log("Editing cards baby")
+  }
+
+
+
+
   const footer = document.querySelector('.footer');
-  const cardMarker = document.querySelectorAll(".card");
+
 
   // ADD overlay
   const addBtn = document.getElementById('add-button');
@@ -177,11 +241,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // close buttons
   const closeBtns = document.querySelectorAll('.close-button')
 
-
   // listeners
-  optionsToggle.addEventListener('click', () => {
+
+  function toggleOptions() {
     optionsContent.classList.toggle('show');
-  });
+  }
+
 
   // Close the options dropdown when clicking outside of it
   window.addEventListener('click', (event) => {
@@ -190,11 +255,8 @@ document.addEventListener('DOMContentLoaded', () => {
       footer.classList.remove('menu-open'); // Also remove the class from the footer
     }
   });
-  cardMarker.forEach(card => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("marked");
-    });
-  });
+
+
 
   settingsBtn.addEventListener('click', () => {
     settingsOverlay.classList.toggle('show');
@@ -202,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('click', (event) => {
-    if (event.target.matches('.settings')){
+    if (event.target.matches('.settings')) {
       settingsOverlay.classList.remove('show');
       footer.classList.remove('show');
     }
@@ -240,18 +302,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function adjustBodyPadding() {
-    var footer = document.querySelector('.footer');
-    var footerHeight = footer.offsetHeight + 16;
-    document.body.style.paddingBottom = footerHeight + 'px';
+  // add height to empty div, based on the footer height
+  function adjustPageExtension() {
+    var footerHeight = document.querySelector('.footer').offsetHeight + 16;
+    document.getElementById('page-extension').style.height = footerHeight + 'px';
   }
 
-  // Adjust padding on load
-  window.addEventListener('load', adjustBodyPadding);
+  window.addEventListener('load', adjustPageExtension);
 
-  // Adjust padding if the window is resized
-  window.addEventListener('resize', adjustBodyPadding);
+  delBtn.addEventListener("click", deleteMarkedCards);
 
+  optionsToggle.addEventListener('click', toggleOptions);
 
 
 });

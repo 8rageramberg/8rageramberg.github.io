@@ -20,16 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    function adjustBodyPadding() {
-        var footer = document.querySelector('.footer');
-        var footerHeight = footer.offsetHeight + 16;
-        document.body.style.paddingBottom = footerHeight + 'px';
-      }
-    
-      // Adjust padding on load
-      window.addEventListener('load', adjustBodyPadding);
-    
-      // Adjust padding if the window is resized
-      window.addEventListener('resize', adjustBodyPadding);
+
+    // add height to empty div, based on the footer height
+    function adjustPageExtension() {
+        var footerHeight = document.querySelector('.footer').offsetHeight + 16;
+        document.getElementById('page-extension').style.height = footerHeight + 'px';
+    }
+
+    window.addEventListener('load', adjustPageExtension);
 
 });

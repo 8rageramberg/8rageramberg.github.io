@@ -254,10 +254,6 @@ form textarea {
     /* Center items vertically */
 }
 
-body {
-    padding-bottom: 60px; /* Adjust based on the footer height */
-}
-
 .footer-container {
     display: flex;
     align-items: center;
