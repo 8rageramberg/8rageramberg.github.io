@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
        
       `;
 
-       // <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
+      // <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
       rightDiv.appendChild(details);
 
 
@@ -88,6 +88,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const optionsToggle = document.querySelector('.options-toggle');
   const optionsContent = document.querySelector('.options-content');
 
+  const filterInput = document.querySelector('.search-input');
+
+
+  // filter card
+  function filterCards(inputValue) {
+    const filterText = inputValue.toLowerCase();
+
+    const filmCards = Array.from(document.querySelectorAll('.card'));
+
+    filmCards.forEach(card => {
+      const filmDetails = card.querySelector('.card-details');
+      const textContent = filmDetails.textContent.toLowerCase();
+
+      if (textContent.includes(filterText)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  filterInput.addEventListener('input', () => {
+    const inputValue = filterInput.value.trim();
+    filterCards(inputValue);
+  });
 
 
   function updateButton() {
@@ -113,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         markedCards.push(card);
       }
 
-
       updateButton();
       // Toggle the 'marked' class
       card.classList.toggle("marked");
@@ -131,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     markedIndices.sort((a, b) => b - a).forEach(index => {
-        films.splice(index, 1);
+      films.splice(index, 1);
     });
 
     markedCards.forEach(card => {
