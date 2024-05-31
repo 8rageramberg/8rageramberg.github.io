@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rating: 9,
       priority: 1,
       favorite: true,
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      imageUrl: 'https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg',
       date: new Date('2012-12-10T16:30:00')
     },
     {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rating: 9.2,
       priority: 1,
       favorite: true,
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      imageUrl: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg',
       date: new Date('2012-12-10T16:30:00')
     },
     {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rating: 8.8,
       priority: 2,
       favorite: true,
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+      imageUrl: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg',
       date: new Date('2012-12-10T16:30:00')
     },
     {
