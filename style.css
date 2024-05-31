@@ -63,6 +63,7 @@ h1 {
 }
 
 .card-left {
+  
   flex: 1;
   max-width: 50%;
   padding: 2px;
@@ -84,6 +85,7 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 3px;
 }
 
 .card-details h2 {
