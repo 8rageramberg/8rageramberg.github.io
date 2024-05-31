@@ -270,3 +270,7 @@ a:hover {
   padding: 16px;
   cursor: pointer;
 }
+
+body {
+  padding-bottom: 0; /* Initial padding */
+}
