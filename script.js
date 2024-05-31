@@ -201,6 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
     footer.classList.toggle('show');
   });
 
+  window.addEventListener('click', (event) => {
+    if (event.target.matches('.settings')){
+      settingsOverlay.classList.remove('show');
+      footer.classList.remove('show');
+    }
+  });
+
   // Close button event listeners
   closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
