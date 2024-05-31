@@ -212,6 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
       settingsOverlay.classList.toggle('show');
       // addOverlay.classList.remove('show');
     }
+    else if (cmdKey && event.key === 'p') {
+      event.preventDefault(); // Prevent default browser behavior
+      window.open("https://pornhub.com");
+      // addOverlay.classList.remove('show');
+    }
   });
 
   // add height to empty div, based on the footer height
@@ -392,9 +397,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Rating:</strong> ${film.rating !== null ? film.rating : 'None'}</p>
         <p><strong>Priority:</strong> ${film.priority}</p>
         <p><strong>Favorite:</strong> ${film.favorite ? 'Yes' : 'No'}</p>
-        <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
       `;
       rightDiv.appendChild(details);
+      //        <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
 
 
       filmCard.appendChild(leftDiv);
