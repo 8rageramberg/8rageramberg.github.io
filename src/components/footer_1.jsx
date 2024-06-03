@@ -46,7 +46,7 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
 
           <div className="footer-container">
             <button className="delete-button" onClick={onDelete}>DELETE</button>
-            <button className="sort-button" onClick={sortButton}>SORT</button>
+            {/* <button className="sort-button" onClick={sortButton}>SORT</button>   unused sort button as the search function works in the same way */}
             <button className="options-toggle" onClick={optionsToggle}>SEARCH</button>
 
             {markedCards.length === 1 ? (                                                   // Changingg button between delete draft
