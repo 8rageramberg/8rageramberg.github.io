@@ -98,7 +98,7 @@ function App() {
       {showAddSite ?    // Toggeling footers based on the showAddSite const
         <Footer_2 onBack={onBack} onAdd={onBack} onDelete={onDelete} adjustPageExtension={adjustPageExtension} showBackButton={showBackButton}
           toggleButton={toggleButton} /> :
-        <Footer_1 unmarkAllCards={unmarkAllCards} markedCards={markedCards} onDelete={onDelete} sortButton={console.log("sorting...")} adjustPageExtension={adjustPageExtension} toggleAddSite={toggleAddSite} handleEdit={handleEdit} />}
+        <Footer_1 unmarkAllCards={unmarkAllCards} markedCards={markedCards} onDelete={onDelete} adjustPageExtension={adjustPageExtension} toggleAddSite={toggleAddSite} handleEdit={handleEdit} />}
     </div>
   );
 }
