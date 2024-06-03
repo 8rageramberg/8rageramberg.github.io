@@ -101,6 +101,7 @@ function App() {
   );
 }
 
+
 // Rendering in root
 const container = document.getElementById('root');
 const root = createRoot(container);

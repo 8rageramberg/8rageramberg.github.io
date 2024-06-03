@@ -15,7 +15,7 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
 
   // Filter handler for search bar
   const handleInputChange = (event) => {
-    const inputValue = event.target.value.trim();
+    const inputValue = event.target.value.trim(); 
     filterCards(inputValue);
   };
 
