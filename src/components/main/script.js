@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // close buttons
   const closeBtns = document.querySelectorAll('.close-button')
-
   const films = JSON.parse(localStorage.getItem('films')) || [];
 
   function createCard() {
@@ -70,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // <p><strong>Date:</strong> ${film.date.toLocaleString()}</p>
       rightDiv.appendChild(details);
 
-
       filmCard.appendChild(leftDiv);
       filmCard.appendChild(rightDiv);
       cardContainer.appendChild(filmCard);
@@ -79,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   createCard();
+
+
 
 
   // card action
@@ -113,6 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputValue = filterInput.value.trim();
     filterCards(inputValue);
   });
+
+
+
+
+
 
 
   function updateButton() {
@@ -170,13 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
     markedCards = [];
   }
 
-
-
-  function editMarkedCard() {
-    console.log("Editing cards baby")
-
-  }
-
   // listeners
 
   function toggleOptions() {
@@ -215,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
   // Keyboard shortcuts
   document.addEventListener('keydown', (event) => {
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
@@ -240,18 +237,21 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault(); // Prevent default browser behavior
       window.open("https://pornhub.com");
       // addOverlay.classList.remove('show');
+    } else if (cmdKey && event.key === 'd') {
+      event.preventDefault(); // Prevent default browser behavior
+      delBtn.click();
+      // addOverlay.classList.remove('show');
     }
   });
+
+
+
 
   // add height to empty div, based on the footer height
   function adjustPageExtension() {
     var footerHeight = document.querySelector('.footer').offsetHeight + 16;
     document.getElementById('page-extension').style.height = footerHeight + 'px';
   }
-
-
-
-
 
   window.addEventListener('load', adjustPageExtension);
 

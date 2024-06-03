@@ -220,7 +220,8 @@ label {
 
 form input,
 form select,
-form textarea {
+form textarea,
+.dropdown {
     width: 100%;
     padding: 5px;
     margin-bottom: 8px;
@@ -229,16 +230,6 @@ form textarea {
     box-sizing: border-box;
 }
 
-/* Media query for larger screens */
-@media (min-width: 1200px) {
-
-    form input,
-    form select,
-    form textarea {
-        width: 170%;
-        /* Make the form inputs 33% bigger */
-    }
-}
 
 
 
@@ -258,4 +249,75 @@ form textarea {
     display: flex;
     align-items: center;
     text-align: center;
+}
+
+
+/* Dropdown */
+.dropdown{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.dropdown-content div {
+    padding-left: 16px;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-block;
+    width: 45%;
+    margin: 2.5%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.dropdown-content div:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#selected-genres {
+    margin-top: 10px;
+    min-height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.selected-genre {
+    background-color: #e1e1e1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.selected-genre span {
+    margin-right: 5px;
+}
+
+.selected-genre button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    
 }
