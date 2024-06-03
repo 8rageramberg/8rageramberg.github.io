@@ -6,3 +6,7 @@ To run the application on your machine you need to do the following command in a
 # npm run dev
 
 Afterwords a popup shouls show with a link to a local host. This Link will lead you to the application. 
+
+
+
+you can also go to website: https://8rageramberg.github.io/myfilmratings/
