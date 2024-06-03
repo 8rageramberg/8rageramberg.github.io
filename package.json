@@ -2,13 +2,14 @@
   "name": "8rageramberg.github.io",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://gitname.github.io",
+  "homepage": "https://8rageramberg.github.io/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
