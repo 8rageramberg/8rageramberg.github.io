@@ -37,17 +37,20 @@ function App() {
 
   // onDelete is the function when cards are deleted.
   const onDelete = () => {
+    
+    onBack();
+    setShowBackButton(true);
+  };
+
+
+  const deleteMarked = () => {
     const storedFilms = JSON.parse(localStorage.getItem('films')) || [];    // Get the stored films from local storage
     const updatedFilms = storedFilms.filter(film => !film.marked);          // Filter out marked films
     localStorage.setItem('films', JSON.stringify(updatedFilms));            // Update the local storage with filter
     localStorage.removeItem('markedCard');                                  // Remove marked card from local storage, if Delete draft pressed
     setFilms(updatedFilms)
     setMarkedCards([])
-    onBack()
-  };
-
-
-
+  }
 
   // Edit button is pressed and we store the card and go to the addSite
   const handleEdit = () => {
@@ -64,6 +67,7 @@ function App() {
 
   // action for the back/delete button in the addSite. This brings us back to the 
   const onBack = () => {
+    deleteMarked();
     setShowAddSite(false);
   }
 
@@ -90,7 +94,7 @@ function App() {
       <Settings />
 
       {showAddSite ?    // Toggeling add site and card site based on the showAddSite const
-        <AddSite showAddSite={showAddSite} /> :
+        <AddSite showAddSite={showAddSite} setShowBackButton={setShowBackButton} showBackButton={showBackButton} /> :
         <Cards adjustPageExtension={adjustPageExtension} markedCards={markedCards} setMarkedCards={setMarkedCards} films={films} setFilms={setFilms} />}
 
       {showAddSite ?    // Toggeling footers based on the showAddSite const

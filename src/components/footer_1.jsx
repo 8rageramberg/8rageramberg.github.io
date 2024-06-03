@@ -3,7 +3,6 @@ import React from 'react';
 // Footer one class, matching with card display
 function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, toggleAddSite, markedCards, handleEdit }) {
 
-
   // Search bar for card site, created with toggle css styles
   const optionsToggle = () => {
     const searchInput = document.querySelector('.search-input');
@@ -15,7 +14,7 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
 
   // Filter handler for search bar
   const handleInputChange = (event) => {
-    const inputValue = event.target.value.trim(); 
+    const inputValue = event.target.value.trim();
     filterCards(inputValue);
   };
 
@@ -25,7 +24,7 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
     const filmCards = Array.from(document.querySelectorAll('.card'));   // Get all cards
 
     filmCards.forEach(card => {                                         // Loop card, get data
-      const filmDetails = card.querySelector('.card-details');             
+      const filmDetails = card.querySelector('.card-details');
       const textContent = filmDetails.textContent.toLowerCase();
 
       if (textContent.includes(filterText)) {                           // Display if match
@@ -39,8 +38,8 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
   return (
     <div id="page-extension">
       <footer className='footer'>
-
         <div className="options-dropdown">
+
           <div className="options-content">
             <input type="text" className="search-input" id="temp" placeholder="Search..." onChange={handleInputChange} />
           </div>
@@ -50,17 +49,17 @@ function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, tog
             <button className="sort-button" onClick={sortButton}>SORT</button>
             <button className="options-toggle" onClick={optionsToggle}>SEARCH</button>
 
-            {markedCards.length === 1 ? (
-              <button className="edit green-button" onClick={handleEdit}>EDIT</button>
-            ) : (
+            {markedCards.length === 1 ? (                                                   // Changingg button between delete draft
+              <button className="edit green-button" onClick={handleEdit}>EDIT</button>      // depending on access addsit through edit or not, with marked
+            ) : (                                                                           // card logic
               markedCards.length > 1 ? (
                 <button className="new-button" onClick={unmarkAllCards}> DESELECT</button>
               ) : (
                 <button className="add-button" onClick={toggleAddSite}>ADD</button>
               )
             )}
-
           </div>
+
         </div>
       </footer >
     </div >

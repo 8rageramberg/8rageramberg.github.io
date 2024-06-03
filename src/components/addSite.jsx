@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function AddSite() {
+function AddSite( {setShowBackButton} ) {
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [genreInput, setGenreInput] = useState('');
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -103,8 +103,12 @@ function AddSite() {
         // Clear form fields
         event.target.reset();
         setSelectedGenres([]);
+
+        setShowBackButton(true)
     };
 
+
+    // Cunstructing the form: 
     return (
         <div id="add-site" className="add-site">
             <div className="overlay-content">
@@ -121,7 +125,7 @@ function AddSite() {
 
                         <input type="radio" id="radio-button-2" name="content" value="tv" required />
                         <label htmlFor="radio-button-2" tabIndex="5">TV</label>
-                        
+
                     </div>
                     <label>Genre:</label>
                     <div className="dropdown">

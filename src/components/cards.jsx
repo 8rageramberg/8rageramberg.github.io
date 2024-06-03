@@ -163,6 +163,7 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
                     </div>
                     <div className="card-right">
                         <div className="card-details">
+                            
                             <h2>{film.title}</h2>
                             <p><strong>Director:</strong> {film.director}</p>
                             <p><strong>Year:</strong> {film.year}</p>
@@ -172,8 +173,9 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
                             <p><strong>Watched:</strong> {film.watched ? 'Yes' : 'No'}</p>
                             <p><strong>Rating:</strong> {film.rating !== null ? parseFloat(film.rating).toFixed(1) : 'None'}</p>
                             <p><strong>Priority:</strong> {film.priority}</p>
-                            <p><strong>Favorite:</strong> {film.favourite ? 'Yes' : 'No'}</p>
+                            <p><strong>Favorite:</strong> {film.favourite ? 'Yes 💙' : 'No'}</p>
                             <p style={{ display: 'none' }}><strong>Marked:</strong> {film.marked ? 'Yes' : 'No'}</p>
+                            <p><strong>Date add:</strong> {film.date = new Date().toLocaleDateString()}</p>
 
                         </div>
                     </div>
