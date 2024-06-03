@@ -58,6 +58,8 @@ prompt: Prompt:  “fix my form to fit my data model”
 
  <!-- Input fields --> <form id="addFolderForm"> <input type="text" placeholder="Name" required> <input type="text" placeholder="Director" required> <input type="text" placeholder="Year" required> <button type="radio">Film/TV</button> <input type="text" placeholder="Genera" required> <input type="number" placeholder="Length" required> <input type="text" placeholder="Seen" required> <input type="number" placeholder="Rating" required> <input type="number" placeholder="Numer Priority" required> <input type="text" placeholder="img url" required> <input type="int" placeholder="Favourite" required> <button type="submit">Add</button> fix my form to fit the data model: str: Title str: Di- rector int: (num input) Year boolean (radio button): Content list[str] (drop- down): Genre int, int (num input) (hours, min- utes): Duration boolean (radio button): Watched float (0- 10) (num input) / None: Rating float (0- 10) (num input): Priority boolean (press icon): favourite Batman Begins Christopher Nolan 2005 Film Fantasy / Action 2h 20min Yes 9 stars 1 Yes The Big Bang The- ory Mark Cendrowski 2007 TV-Series Comedy 20min No None 10 (top priority) Yes Looking at the data model we want to keep track of a lot of data. We need all these data for simple lookup, allowing the users to see all the features of a movie that is important. For future scalability I also envision users can select columns themselves, such as adding notes on the film, rating for music or favourite actor in the film
 
-Reply: 
+Reply: \
+
+
 ![alt text](gpt/gpt1.png)
 
