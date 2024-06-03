@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 
 // Settings class activated by header element button click
 function Settings() {

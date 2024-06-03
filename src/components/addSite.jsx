@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-function AddSite( {setShowBackButton} ) {
-    const [selectedGenres, setSelectedGenres] = useState([]);
-    const [genreInput, setGenreInput] = useState('');
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+// Main page for add site
+function AddSite({ setShowBackButton }) {
+    const [selectedGenres, setSelectedGenres] = useState([]);       // Store the generes selected
+    const [genreInput, setGenreInput] = useState('');               // Input in generes, Lets user search for generes
+    const [dropdownVisible, setDropdownVisible] = useState(false);  // Usestate to capture if dropdown is visible or not
 
+    // Generes list
     const genres = [
         "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama",
         "Family", "Fantasy", "History", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Sport",
         "Thriller", "War", "Western", "Superhero", "Disaster", "Anime", "Stop Motion", "Dark Comedy",
         "Romantic Comedy", "Historical", "Noir",
     ];
+
+    // Genere input is handeled with onchange event
     const handleGenreInputChange = (event) => {
         setGenreInput(event.target.value);
     };
 
+    // Adding a genre to the list of selected genres
     const addGenre = (genreToAdd) => {
         if (genreToAdd && !selectedGenres.includes(genreToAdd)) {
             setSelectedGenres([...selectedGenres, genreToAdd]);
@@ -23,13 +28,14 @@ function AddSite( {setShowBackButton} ) {
         setDropdownVisible(false);
     };
 
+    // Remove generes, activated on button click 
     const removeGenre = (genreToRemove) => {
         const updatedGenres = selectedGenres.filter(genre => genre !== genreToRemove);
         setSelectedGenres(updatedGenres);
     };
 
+    // Useeffect that allowes the user to close the menu on click outside
     useEffect(() => {
-
         const handleClickOutside = (event) => {
             if (!document.getElementById('genreDropdown').contains(event.target)) {
                 setDropdownVisible(false);
@@ -41,6 +47,39 @@ function AddSite( {setShowBackButton} ) {
         };
     }, []);
 
+    // Activated by add button in footer 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const film = {
+            title: formData.get('title'),
+            director: formData.get('director'),
+            year: formData.get('year'),
+            content: formData.get('content'),
+            genre: selectedGenres.join(', '),
+            durationHours: formData.get('durationHours'),
+            durationMinutes: formData.get('durationMinutes'),
+            watched: formData.get('watched') === 'yes' ? true : false,
+            rating: formData.get('rating'),
+            priority: formData.get('priority'),
+            imageUrl: formData.get('imageUrl'),
+            favourite: event.target.favourite.checked,
+            marked: false,
+        };
+
+        // Add the film to local storage
+        const films = JSON.parse(localStorage.getItem('films')) || [];
+        films.push(film);
+        localStorage.setItem('films', JSON.stringify(films));
+
+        // Clear form fields
+        event.target.reset();
+        setSelectedGenres([]);
+
+        setShowBackButton(true)     // Turn delete to back button
+    };
+
+    // Fill out form if there is one marked button
     useEffect(() => {
         const storedMarkedFilm = localStorage.getItem('markedCard');
         if (storedMarkedFilm) {
@@ -76,38 +115,6 @@ function AddSite( {setShowBackButton} ) {
         }
     }, []);
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const film = {
-            title: formData.get('title'),
-            director: formData.get('director'),
-            year: formData.get('year'),
-            content: formData.get('content'),
-            genre: selectedGenres.join(', '),
-            durationHours: formData.get('durationHours'),
-            durationMinutes: formData.get('durationMinutes'),
-            watched: formData.get('watched') === 'yes' ? true : false,
-            rating: formData.get('rating'),
-            priority: formData.get('priority'),
-            imageUrl: formData.get('imageUrl'),
-            favourite: event.target.favourite.checked,
-            marked: false,
-        };
-
-        // Add the film to local storage
-        const films = JSON.parse(localStorage.getItem('films')) || [];
-        films.push(film);
-        localStorage.setItem('films', JSON.stringify(films));
-
-        // Clear form fields
-        event.target.reset();
-        setSelectedGenres([]);
-
-        setShowBackButton(true)
-    };
-
-
     // Cunstructing the form: 
     return (
         <div id="add-site" className="add-site">
@@ -120,7 +127,7 @@ function AddSite( {setShowBackButton} ) {
 
                     <label>What type of content:</label>
                     <div className="radio-buttons">
-                        <input type="radio" id="radio-button-1" name="content" value="film" required />
+                        <input type="radio" id="radio-button-1" name="content" value="film" defaultChecked required />
                         <label htmlFor="radio-button-1" tabIndex="4">FILM</label>
 
                         <input type="radio" id="radio-button-2" name="content" value="tv" required />
@@ -135,7 +142,7 @@ function AddSite( {setShowBackButton} ) {
                             value={genreInput}
                             onChange={handleGenreInputChange}
                             onFocus={() => setDropdownVisible(true)}
-                            placeholder="Select or type a genre"
+                            placeholder="Select or Search for type a genre"
                             tabIndex="6"
                         />
                         {dropdownVisible && (
@@ -170,21 +177,21 @@ function AddSite( {setShowBackButton} ) {
 
                     <label>Have you seen it or not?</label>
                     <div className="radio-buttons">
-                        <input type="radio" id="radio-button-3" name="watched" value="no" required />
+                        <input type="radio" id="radio-button-3" name="watched" value="no" defaultChecked required />
                         <label htmlFor="radio-button-3" tabIndex="9">NO</label>
 
                         <input type="radio" id="radio-button-4" name="watched" value="yes" required />
                         <label htmlFor="radio-button-4" tabIndex="10">Yes</label>
                     </div>
 
-                    <label htmlFor="rating">Rating:</label>
-                    <input type="float" id="rating" min="0" max="10" name='rating' tabIndex="11" />
+                    <label htmlFor="rating"> Rating:</label>
+                    <input type="float" id="rating" min="0" max="10" name='rating' placeholder="This field is not required" tabIndex="11" />
 
                     <label htmlFor="priority">Priority:</label>
                     <input type="number" id="priority" min="1" name='priority' required tabIndex="12" />
 
                     <label htmlFor="imgUrl">Image URL:</label>
-                    <input type="text" id="imageUrl" tabIndex="13" name='imageUrl' />
+                    <input type="text" id="imageUrl" tabIndex="13" placeholder="This field is not required" name='imageUrl' />
 
                     <div className="custom-checkbox">
                         <input name="favourite" type="checkbox" id="custom-checkbox" className="custom-checkbox" />
@@ -198,7 +205,3 @@ function AddSite( {setShowBackButton} ) {
 }
 
 export default AddSite;
-
-
-
-
