@@ -140,7 +140,7 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
             const durationMinutes = parseInt(film.durationMinutes, 10);
             const duration = `${durationHours}h ${durationMinutes}m`;           // Create one duration in better format for cards                              
             const uniqueKey = `${film.title}-${index}`;                         // Create unique key for films
-            
+
             adjustPageExtension();                                              // adjust page extention in case card creates new row, we dont want footer to overlap it
             return (
                 <div
@@ -164,7 +164,7 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
                     </div>
                     <div className="card-right">
                         <div className="card-details">
-                            
+
                             <h2>{film.title}</h2>
                             <p><strong>Director:</strong> {film.director}</p>
                             <p><strong>Year:</strong> {film.year}</p>
@@ -177,7 +177,7 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
                             <p><strong>Date add:</strong> {film.date = new Date().toLocaleDateString()}</p>
                             <p><strong>Favorite:</strong> {film.favourite ? 'Yes 💙' : 'No'}</p>
                             <p style={{ display: 'none' }}><strong>Marked:</strong> {film.marked ? 'Yes' : 'No'}</p>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -185,6 +185,7 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
         });
     };
 
+    // Given an imput the film are either marked or unmarked 
     const toggleMarkedStatus = (films, index) => {
         const updatedFilms = films.map((film, idx) => {
             if (idx === index) {

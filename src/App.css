@@ -285,7 +285,6 @@ a:hover {
 
 
 /* form */
-
 form {
   display: flex;
   flex-direction: column;
@@ -373,7 +372,7 @@ form textarea,
   align-items: center;
 }
 
-/* Dropdown menue for genre */
+/* Dropdown menu for genre */
 .dropdown {
   position: relative;
   display: inline-block;
