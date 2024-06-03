@@ -1,32 +1,37 @@
 import React from 'react';
 
+// Footer one class, matching with card display
+function Footer({ unmarkAllCards, onDelete, sortButton, adjustPageExtension, toggleAddSite, markedCards, handleEdit }) {
 
-function Footer({ deSelect, onDelete, sortButton, adjustPageExtension, toggleAddSite, markedCards, handleEdit }) {
 
+  // Search bar for card site, created with toggle css styles
   const optionsToggle = () => {
+    const searchInput = document.querySelector('.search-input');
+    searchInput.value = ''
     const optionsContent = document.querySelector('.options-content');
     optionsContent.classList.toggle('show');
     adjustPageExtension()
-
   }
 
+  // Filter handler for search bar
   const handleInputChange = (event) => {
     const inputValue = event.target.value.trim();
     filterCards(inputValue);
   };
 
+  // Filter cards function. managing display in css
   const filterCards = (inputValue) => {
     const filterText = inputValue.toLowerCase();
-    const filmCards = Array.from(document.querySelectorAll('.card'));
+    const filmCards = Array.from(document.querySelectorAll('.card'));   // Get all cards
 
-    filmCards.forEach(card => {
-      const filmDetails = card.querySelector('.card-details');
+    filmCards.forEach(card => {                                         // Loop card, get data
+      const filmDetails = card.querySelector('.card-details');             
       const textContent = filmDetails.textContent.toLowerCase();
 
-      if (textContent.includes(filterText)) {
+      if (textContent.includes(filterText)) {                           // Display if match
         card.style.display = '';
       } else {
-        card.style.display = 'none';
+        card.style.display = 'none';                                    // Hide if not
       }
     });
   }
@@ -46,10 +51,10 @@ function Footer({ deSelect, onDelete, sortButton, adjustPageExtension, toggleAdd
             <button className="options-toggle" onClick={optionsToggle}>SEARCH</button>
 
             {markedCards.length === 1 ? (
-              <button className="edit" onClick={handleEdit}>EDIT</button>
+              <button className="edit green-button" onClick={handleEdit}>EDIT</button>
             ) : (
               markedCards.length > 1 ? (
-                <button className="new-button" onClick={deSelect}> DESELECT CARDS</button>
+                <button className="new-button" onClick={unmarkAllCards}> DESELECT</button>
               ) : (
                 <button className="add-button" onClick={toggleAddSite}>ADD</button>
               )

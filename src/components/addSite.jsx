@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 function AddSite() {
-
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [genreInput, setGenreInput] = useState('');
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -44,9 +43,7 @@ function AddSite() {
 
     useEffect(() => {
         const storedMarkedFilm = localStorage.getItem('markedCard');
-
         if (storedMarkedFilm) {
-            
             const parsedMarkedFilm = JSON.parse(storedMarkedFilm);
             document.getElementById('title').value = parsedMarkedFilm.title;
             document.getElementById('director').value = parsedMarkedFilm.director;
@@ -66,18 +63,18 @@ function AddSite() {
             // Set radio button value
             const watchedRadio = document.querySelector(`input[name='watched'][value='${parsedMarkedFilm.watched ? 'yes' : 'no'}']`);
             if (watchedRadio) {
-              watchedRadio.checked = true;
+                watchedRadio.checked = true;
             }
-      
+
             // Set checkbox value
             const favouriteCheckbox = document.querySelector('input[name="favourite"]');
             if (favouriteCheckbox) {
-              favouriteCheckbox.checked = parsedMarkedFilm.favourite;
+                favouriteCheckbox.checked = parsedMarkedFilm.favourite;
             }
             // Set genres
             setSelectedGenres(parsedMarkedFilm.genre.split(' / '));
-          }
-        }, []);
+        }
+    }, []);
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -106,7 +103,6 @@ function AddSite() {
         // Clear form fields
         event.target.reset();
         setSelectedGenres([]);
-
     };
 
     return (
@@ -126,7 +122,6 @@ function AddSite() {
                         <input type="radio" id="radio-button-2" name="content" value="tv" required />
                         <label htmlFor="radio-button-2" tabIndex="5">TV</label>
 
-                        
                     </div>
                     <label>Genre:</label>
                     <div className="dropdown">

@@ -19,7 +19,7 @@ function Settings() {
                     
                     <p>For best user experience you should use images from or similar to IMDB's posters.</p>
 
-                    <p>If you delete all the cards, a small set of defualt cards are created. </p>
+                    <p>If you delete all the cards, a small set of defualt cards are created, they should show up if you refresh. </p>
                 </form>
                 <button className="close-button" onClick={handleClose}>CLOSE</button>
             </div>
