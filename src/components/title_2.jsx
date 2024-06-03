@@ -2,7 +2,7 @@ import React from 'react';
 
 function Title() {
     return (
-        <h1 id="title "> Film/TV-Ratings</h1>
+        <h1 id="title "> ADD Film/TV-Ratings</h1>
     );
 }
 

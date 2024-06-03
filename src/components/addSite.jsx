@@ -46,6 +46,7 @@ function AddSite() {
         const storedMarkedFilm = localStorage.getItem('markedCard');
 
         if (storedMarkedFilm) {
+            
             const parsedMarkedFilm = JSON.parse(storedMarkedFilm);
             document.getElementById('title').value = parsedMarkedFilm.title;
             document.getElementById('director').value = parsedMarkedFilm.director;
