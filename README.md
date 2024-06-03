@@ -1,8 +1,8 @@
 # React + Vite
 
 This project is created with Vite and React. React provides a good template for creating single-page applications, which is why I have chosen this framework.
-
-To run the application on your machine, execute the following command in a terminal:
+To run the application on your machine, execute the following command in a terminal and a link should show up:\
+something like this: http://localhost:5174/myfilmratings/
 
 ```bash
 npm run dev
@@ -10,13 +10,17 @@ npm run dev
 
 Hopefully I get the github pages to run at: https://8rageramberg.github.io/myfilmratings/. I am currently trying my best to link it to the custom domain name myfilmratings.store, but I am encountering some issues. And the adjusting of DNS can take up to 24 hours to complete.
 
-# Changes made from proposal to prototype: 
+# Development Documentation: 
+
+
+
+## Changes made from proposal to prototype: 
 There is quite a few changes to the prototype, both for visual appeal and for functionality.
 
-As SPA is one of the criterions leading me to refactor my code into react. This took a lot of effort but it was nice for structuring the application. The new way where you manages states and the divs are replaced is great for changing out parts of the webpage without having separate html files, and all in all is a good way to create SPA. I tried my best to avoid window reload, it took some time before I realised how to work around it. I believe I found good solutions to problems and all follow a lot of the best practice principles of react. 
+I had almoast created everything of code with normal javascript, html and css files, but I realized my current application was not an actual SPA. As SPA is one of the criterions leading me to refactor my code into react. This took a lot of effort but it was nice for structuring the application. The new way where you manages states and the divs are replaced is great for changing out parts of the webpage without having separate html files, and all in all is a good way to create SPA. I tried my best to avoid window reload, it took some time before I realised how to work around it. I believe I found good solutions to problems and all follow a lot of the best practice principles of react. 
 
-# The Footer
-The footer is a big part of the functionality for the new application. The footer is always placed at the bottom securing an easy reach on mobile phones at all times. The buttons are enlargened and I have also taken in the tips from my grader about "happy paths" putting add to the right and back and delete on the left side"
+## The Footer
+The footer is a big part of the functionality for the new application. The footer is always placed at the bottom securing an easy reach on mobile phones at all times. The buttons are enlargened and I have also taken into account some tips from my grader about "happy paths" putting add to the right and back and delete on the left side". The footer dynamicly changes based on what content is showing, and is are at all times visible. This footer was initially thought to be on the top of the screen but thought about it and realised that you like to have the buttons at the bottom for mobile users. 
 
 ## The Search Bar
 The search bar has replaced the sort functions. As I am quite new to React, implementing sorting buttons to allow selection of different sorting criteria was challenging and time-consuming. Due to time constraints, I focused on the search functionality. The search button, however, works with almost all the intended sorting steps. In the future, I would like to add sort functionality that lets you sort by ascending or descending priority, ratings, and other criteria.
@@ -56,14 +60,12 @@ Here are a few prompts appliccable to show:
 
 
 # Prompts and replies
-Reason: I had already created the form in javascript but I needed to refactor it to react. Changes were made to fit my application later. 
-prompt: Prompt:  “fix my form to fit my data model”
+Reason: I had already created the form in javascript but I needed to refactor it to react. Changes were made to fit my application later.\
+Prompt:  “fix my form to fit my data model”
 
  <!-- Input fields --> <form id="addFolderForm"> <input type="text" placeholder="Name" required> <input type="text" placeholder="Director" required> <input type="text" placeholder="Year" required> <button type="radio">Film/TV</button> <input type="text" placeholder="Genera" required> <input type="number" placeholder="Length" required> <input type="text" placeholder="Seen" required> <input type="number" placeholder="Rating" required> <input type="number" placeholder="Numer Priority" required> <input type="text" placeholder="img url" required> <input type="int" placeholder="Favourite" required> <button type="submit">Add</button> fix my form to fit the data model: str: Title str: Di- rector int: (num input) Year boolean (radio button): Content list[str] (drop- down): Genre int, int (num input) (hours, min- utes): Duration boolean (radio button): Watched float (0- 10) (num input) / None: Rating float (0- 10) (num input): Priority boolean (press icon): favourite Batman Begins Christopher Nolan 2005 Film Fantasy / Action 2h 20min Yes 9 stars 1 Yes The Big Bang The- ory Mark Cendrowski 2007 TV-Series Comedy 20min No None 10 (top priority) Yes Looking at the data model we want to keep track of a lot of data. We need all these data for simple lookup, allowing the users to see all the features of a movie that is important. For future scalability I also envision users can select columns themselves, such as adding notes on the film, rating for music or favourite actor in the film
 
 Reply:\
-
-
 ![alt text](gpt/gpt1.png)
 
 
@@ -93,6 +95,13 @@ Reply: Pretty similar to my code here:\
 prompt: 
 fix my  readme markdown to look nice, fix grammer and tell me if something needs further explaining: 
 "copy paste of current Readme"
+
+reply: 
+
+```bash
+npm run dev
+```
+
 
 
 
