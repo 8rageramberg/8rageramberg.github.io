@@ -2,7 +2,6 @@
   "name": "8rageramberg.github.io",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://8rageramberg.github.io/",
   "type": "module",
   "scripts": {
     "dev": "vite",

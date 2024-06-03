@@ -8,5 +8,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/https://8rageramberg.github.io/', // Replace <repository-name> with your actual repository name
+  base: '/https://8rageramberg.github.io', // Replace <repository-name> with your actual repository name
 });
