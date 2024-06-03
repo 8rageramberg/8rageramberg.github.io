@@ -1,3 +1,7 @@
+Github link:\
+https://github.com/8rageramberg/myfilmratings
+
+
 # React + Vite
 
 This project is created with Vite and React. React provides a good template for creating single-page applications, which is why I have chosen this framework.
@@ -11,8 +15,7 @@ npm run dev
 Hopefully I get the github pages to run at: https://8rageramberg.github.io/myfilmratings/. I am currently trying my best to link it to the custom domain name myfilmratings.store, but I am encountering some issues. And the adjusting of DNS can take up to 24 hours to complete.
 
 # Development Documentation: 
-
-
+The application is created to allow users to store movies they want to watch in an easy to use application. There are no nown limitations at the moment. Simple usage is described in settings top left corner of application.
 
 ## Changes made from proposal to prototype: 
 There is quite a few changes to the prototype, both for visual appeal and for functionality.
