@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-// importing the building blocks of the application
+// Importing the building blocks of the application
 import Header from './components/header';
 import Cards from './components/cards';
 import Footer_1 from './components/footer_1';
@@ -17,7 +17,6 @@ function App() {
   const [markedCards, setMarkedCards] = useState([]);     // Marked cards are an indicator list of which cards are marked.
   const [showBackButton, setShowBackButton] = useState(true); // Ustate to assert if backButton or deleteButton should be displayed 
   const [films, setFilms] = useState([]);                 // List of film list 
-
 
   // Toggle the backbutton between delete or back depending on the addsite was launched on EDIT or ADD btn
   const toggleButton = () => {
@@ -41,7 +40,6 @@ function App() {
     onBack();
     setShowBackButton(true);
   };
-
 
   const deleteMarked = () => {
     const storedFilms = JSON.parse(localStorage.getItem('films')) || [];    // Get the stored films from local storage

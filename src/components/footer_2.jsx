@@ -6,10 +6,7 @@ function Footer({ onBack, onDelete, adjustPageExtension, showBackButton }) {
     useEffect(() => {
         adjustPageExtension();
     }, [adjustPageExtension]);
-
-
-
-    
+        
     return (
         <div id="page-extension">
             <footer className="footer">

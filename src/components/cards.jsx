@@ -138,9 +138,10 @@ const Cards = ({ adjustPageExtension, markedCards, setMarkedCards, films, setFil
         return films.map((film, index) => {
             const durationHours = parseInt(film.durationHours, 10);
             const durationMinutes = parseInt(film.durationMinutes, 10);
-            const duration = `${durationHours}h ${durationMinutes}m`;   // Create one duration in better format for cards                              
-            const uniqueKey = `${film.title}-${index}`;                 // Create unique key for films
-            adjustPageExtension();                                      // adjust page extention in case card creates new row, we dont want footer to overlap it
+            const duration = `${durationHours}h ${durationMinutes}m`;           // Create one duration in better format for cards                              
+            const uniqueKey = `${film.title}-${index}`;                         // Create unique key for films
+            
+            adjustPageExtension();                                              // adjust page extention in case card creates new row, we dont want footer to overlap it
             return (
                 <div
                     key={uniqueKey}
