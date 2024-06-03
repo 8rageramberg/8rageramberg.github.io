@@ -13,7 +13,7 @@ Hopefully I get the github pages to run at: https://8rageramberg.github.io/myfil
 # Changes made from proposal to prototype: 
 There is quite a few changes to the prototype, both for visual appeal and for functionality.
 
-As SPA is one of the criterions leading me to refactor my code into react. This took a lot of effort but it was nice for structuring the application. The new way where you manages states and the divs are replaced is great for changing out parts of the webpage without having separate html files, and all in all is a good way to create SPA.
+As SPA is one of the criterions leading me to refactor my code into react. This took a lot of effort but it was nice for structuring the application. The new way where you manages states and the divs are replaced is great for changing out parts of the webpage without having separate html files, and all in all is a good way to create SPA. I tried my best to avoid window reload, it took some time before I realised how to work around it. I believe I found good solutions to problems and all follow a lot of the best practice principles of react. 
 
 # The Footer
 The footer is a big part of the functionality for the new application. The footer is always placed at the bottom securing an easy reach on mobile phones at all times. The buttons are enlargened and I have also taken in the tips from my grader about "happy paths" putting add to the right and back and delete on the left side"
@@ -40,6 +40,11 @@ The selecting system initially used smaller checkboxes. Now, the entire card act
 ## Edit System
 
 The edit system allows users to update a card. When a card is selected, users can edit it using an edit handler. The add site form now has prefilled inputs based on the original card the user wanted to edit.
+
+
+## Style
+
+For style I tried matching visualy pleasing colours together, and for buttons I went for some colour changes on both hover and functionality. For font I went for an old american typewriter look and all in all I tried to make it as simplistic as possible with a bit of visually leading colours.
 
 ## Use of Generative AI
 
@@ -87,6 +92,7 @@ Reply: Pretty similar to my code here:\
 
 prompt: 
 fix my  readme markdown to look nice, fix grammer and tell me if something needs further explaining: 
-
 "copy paste of current Readme"
+
+
 
